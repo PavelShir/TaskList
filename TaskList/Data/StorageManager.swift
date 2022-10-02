@@ -12,6 +12,9 @@ class StorageManager {
     
     static let shared = StorageManager()
     
+    let title: String?
+    let context: NSManagedObjectContext
+    
     var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "TaskList")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -23,8 +26,10 @@ class StorageManager {
     }()
    
     private init() {
-        
+        title = ""
+        context = persistentContainer.viewContext
     }
+    
     func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -36,12 +41,9 @@ class StorageManager {
             }
         }
     }
-   
-    
-    
-    
 }
 
+ 
 
 
 
