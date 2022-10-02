@@ -34,7 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         saveContext()
     }
 
-    // MARK: - Core Data stack
+// MARK: - CORE DATA
+    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "TaskList")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -44,8 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-
-    // MARK: - Core Data Saving support
+   
     func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -57,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
 
 }
 
