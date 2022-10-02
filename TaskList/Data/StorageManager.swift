@@ -26,7 +26,7 @@ class StorageManager {
     }()
    
     private init() {
-        title = ""
+        self.title = ""
         context = persistentContainer.viewContext
     }
     
@@ -41,6 +41,9 @@ class StorageManager {
             }
         }
     }
+    
+    
+    
 }
 
  
